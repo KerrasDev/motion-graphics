@@ -1,4 +1,5 @@
 import { randomBytes } from 'node:crypto';
+import { Buffer } from 'node:buffer';
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import cookie from '@fastify/cookie';
 import cors from '@fastify/cors';
