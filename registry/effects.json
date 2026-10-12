@@ -1,0 +1,213 @@
+[
+  {
+    "id": "data-chart",
+    "name": "Data Chart",
+    "description": "A simple animated bar chart for comparative metrics.",
+    "category": "data",
+    "tags": [
+      "chart",
+      "bars",
+      "data",
+      "analytics"
+    ],
+    "entry": "./index.tsx",
+    "preview": "./preview.tsx",
+    "framework": "remotion",
+    "version": "1.0.0",
+    "dependencies": [
+      "remotion"
+    ],
+    "license": "MIT",
+    "properties": [
+      {
+        "name": "title",
+        "label": "Chart title",
+        "type": "string",
+        "description": "Title displayed above the chart.",
+        "defaultValue": "Performance"
+      },
+      {
+        "name": "data",
+        "label": "Data",
+        "type": "array",
+        "description": "Array of labeled numeric values.",
+        "defaultValue": [
+          {
+            "label": "Q1",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "name": "colors",
+        "label": "Colors",
+        "type": "array",
+        "description": "Bar colors.",
+        "defaultValue": [
+          "#2563eb",
+          "#60a5fa",
+          "#c084fc"
+        ]
+      },
+      {
+        "name": "duration",
+        "label": "Duration",
+        "type": "number",
+        "description": "Seconds for the animation.",
+        "defaultValue": 2
+      },
+      {
+        "name": "showLabels",
+        "label": "Show labels",
+        "type": "boolean",
+        "description": "Display value labels below each bar.",
+        "defaultValue": true
+      }
+    ],
+    "compatibility": {
+      "remotion": "^4.0.0",
+      "react": "^18.0.0"
+    },
+    "documentationUrl": "https://www.remotion.dev/"
+  },
+  {
+    "id": "kinetic-title",
+    "name": "Kinetic Title",
+    "description": "A configurable animated title for video scenes.",
+    "category": "typography",
+    "tags": [
+      "title",
+      "text",
+      "intro",
+      "kinetic"
+    ],
+    "entry": "./index.tsx",
+    "preview": "./preview.tsx",
+    "framework": "remotion",
+    "version": "1.0.0",
+    "dependencies": [
+      "remotion"
+    ],
+    "license": "MIT",
+    "properties": [
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "string",
+        "description": "Title content to render.",
+        "defaultValue": "Motion Graphics",
+        "required": true
+      },
+      {
+        "name": "color",
+        "label": "Color",
+        "type": "string",
+        "description": "Title color.",
+        "defaultValue": "#0f172a"
+      },
+      {
+        "name": "fontSize",
+        "label": "Font size",
+        "type": "number",
+        "description": "Text size in pixels.",
+        "defaultValue": 88
+      },
+      {
+        "name": "duration",
+        "label": "Duration",
+        "type": "number",
+        "description": "Animation duration in seconds.",
+        "defaultValue": 2
+      },
+      {
+        "name": "verticalOffset",
+        "label": "Vertical offset",
+        "type": "number",
+        "description": "How far the title moves upward during the animation.",
+        "defaultValue": 72
+      },
+      {
+        "name": "fadeIn",
+        "label": "Fade in",
+        "type": "boolean",
+        "description": "Whether to fade in as the animation begins.",
+        "defaultValue": true
+      }
+    ],
+    "compatibility": {
+      "remotion": "^4.0.0",
+      "react": "^18.0.0"
+    },
+    "documentationUrl": "https://www.remotion.dev/"
+  },
+  {
+    "id": "number-counter",
+    "name": "Number Counter",
+    "description": "A deterministic numeric counter for stats and KPI reveals.",
+    "category": "number",
+    "tags": [
+      "counter",
+      "stat",
+      "data",
+      "metrics"
+    ],
+    "entry": "./index.tsx",
+    "preview": "./preview.tsx",
+    "framework": "remotion",
+    "version": "1.0.0",
+    "dependencies": [
+      "remotion"
+    ],
+    "license": "MIT",
+    "properties": [
+      {
+        "name": "start",
+        "label": "Start",
+        "type": "number",
+        "description": "Counter start value.",
+        "defaultValue": 0
+      },
+      {
+        "name": "end",
+        "label": "End",
+        "type": "number",
+        "description": "Counter end value.",
+        "defaultValue": 1200,
+        "required": true
+      },
+      {
+        "name": "duration",
+        "label": "Duration",
+        "type": "number",
+        "description": "Seconds for the animation.",
+        "defaultValue": 2
+      },
+      {
+        "name": "precision",
+        "label": "Precision",
+        "type": "number",
+        "description": "Decimal places to render.",
+        "defaultValue": 0
+      },
+      {
+        "name": "prefix",
+        "label": "Prefix",
+        "type": "string",
+        "description": "Optional text prefix.",
+        "defaultValue": "$"
+      },
+      {
+        "name": "suffix",
+        "label": "Suffix",
+        "type": "string",
+        "description": "Optional text suffix.",
+        "defaultValue": "%"
+      }
+    ],
+    "compatibility": {
+      "remotion": "^4.0.0",
+      "react": "^18.0.0"
+    },
+    "documentationUrl": "https://www.remotion.dev/"
+  }
+]

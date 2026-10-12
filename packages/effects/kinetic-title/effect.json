@@ -1,0 +1,26 @@
+{
+  "id": "kinetic-title",
+  "name": "Kinetic Title",
+  "description": "A configurable animated title for video scenes.",
+  "category": "typography",
+  "tags": ["title", "text", "intro", "kinetic"],
+  "entry": "./index.tsx",
+  "preview": "./preview.tsx",
+  "framework": "remotion",
+  "version": "1.0.0",
+  "dependencies": ["remotion"],
+  "license": "MIT",
+  "properties": [
+    { "name": "text", "label": "Text", "type": "string", "description": "Title content to render.", "defaultValue": "Motion Graphics", "required": true },
+    { "name": "color", "label": "Color", "type": "string", "description": "Title color.", "defaultValue": "#0f172a" },
+    { "name": "fontSize", "label": "Font size", "type": "number", "description": "Text size in pixels.", "defaultValue": 88 },
+    { "name": "duration", "label": "Duration", "type": "number", "description": "Animation duration in seconds.", "defaultValue": 2 },
+    { "name": "verticalOffset", "label": "Vertical offset", "type": "number", "description": "How far the title moves upward during the animation.", "defaultValue": 72 },
+    { "name": "fadeIn", "label": "Fade in", "type": "boolean", "description": "Whether to fade in as the animation begins.", "defaultValue": true }
+  ],
+  "compatibility": {
+    "remotion": "^4.0.0",
+    "react": "^18.0.0"
+  },
+  "documentationUrl": "https://www.remotion.dev/"
+}

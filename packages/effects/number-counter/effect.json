@@ -1,0 +1,26 @@
+{
+  "id": "number-counter",
+  "name": "Number Counter",
+  "description": "A deterministic numeric counter for stats and KPI reveals.",
+  "category": "number",
+  "tags": ["counter", "stat", "data", "metrics"],
+  "entry": "./index.tsx",
+  "preview": "./preview.tsx",
+  "framework": "remotion",
+  "version": "1.0.0",
+  "dependencies": ["remotion"],
+  "license": "MIT",
+  "properties": [
+    { "name": "start", "label": "Start", "type": "number", "description": "Counter start value.", "defaultValue": 0 },
+    { "name": "end", "label": "End", "type": "number", "description": "Counter end value.", "defaultValue": 1200, "required": true },
+    { "name": "duration", "label": "Duration", "type": "number", "description": "Seconds for the animation.", "defaultValue": 2 },
+    { "name": "precision", "label": "Precision", "type": "number", "description": "Decimal places to render.", "defaultValue": 0 },
+    { "name": "prefix", "label": "Prefix", "type": "string", "description": "Optional text prefix.", "defaultValue": "$" },
+    { "name": "suffix", "label": "Suffix", "type": "string", "description": "Optional text suffix.", "defaultValue": "%" }
+  ],
+  "compatibility": {
+    "remotion": "^4.0.0",
+    "react": "^18.0.0"
+  },
+  "documentationUrl": "https://www.remotion.dev/"
+}

@@ -1,0 +1,10 @@
+node_modules
+.env
+.env.*
+!.env.example
+.pnpm-store
+.vite
+.DS_Store
+dist
+coverage
+*.log
