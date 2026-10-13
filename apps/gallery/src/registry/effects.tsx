@@ -3,21 +3,26 @@ import { DataChart, KineticTitle, NumberCounter } from '@motion-graphics/effects
 
 type PropertyValues = Record<string, unknown>;
 
-const effectSourceLoaders = import.meta.glob<string>(
-  '../../../../packages/effects/*/index.tsx',
-  { query: '?raw', import: 'default' },
-);
+const effectSourceLoaders = import.meta.glob<string>('../../../../packages/effects/*/index.tsx', {
+  query: '?raw',
+  import: 'default',
+});
 
-export const effectExportNameMap: Record<string, string> = {
-  'kinetic-title': 'KineticTitle',
-  'number-counter': 'NumberCounter',
-  'data-chart': 'DataChart',
-};
+const effectExportLoaders = import.meta.glob<string>('../../../../registry/exports/*.tsx', {
+  query: '?raw',
+  import: 'default',
+});
 
 export async function loadEffectSource(effectId: string): Promise<string | null> {
   const sourcePath = `../../../../packages/effects/${effectId}/index.tsx`;
   const loadSource = effectSourceLoaders[sourcePath];
   return loadSource ? loadSource() : null;
+}
+
+export async function loadEffectExport(effectId: string): Promise<string | null> {
+  const exportPath = `../../../../registry/exports/${effectId}.tsx`;
+  const loadExport = effectExportLoaders[exportPath];
+  return loadExport ? loadExport() : null;
 }
 
 const stringValue = (values: PropertyValues, key: string, fallback: string): string => {
@@ -37,14 +42,15 @@ const chartData = (value: unknown): { label: string; value: number }[] => {
   if (!Array.isArray(value)) {
     return [{ label: 'Q1', value: 10 }];
   }
-  const points = value.filter((point): point is { label: string; value: number } =>
-    typeof point === 'object'
-    && point !== null
-    && 'label' in point
-    && typeof point.label === 'string'
-    && 'value' in point
-    && typeof point.value === 'number'
-    && Number.isFinite(point.value),
+  const points = value.filter(
+    (point): point is { label: string; value: number } =>
+      typeof point === 'object' &&
+      point !== null &&
+      'label' in point &&
+      typeof point.label === 'string' &&
+      'value' in point &&
+      typeof point.value === 'number' &&
+      Number.isFinite(point.value),
   );
   return points.length > 0 ? points : [{ label: 'Q1', value: 10 }];
 };

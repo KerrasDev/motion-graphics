@@ -10,6 +10,7 @@
       "data",
       "analytics"
     ],
+    "exportName": "DataChart",
     "entry": "./index.tsx",
     "preview": "./preview.tsx",
     "framework": "remotion",
@@ -36,7 +37,21 @@
             "label": "Q1",
             "value": 10
           }
-        ]
+        ],
+        "required": true,
+        "minItems": 1,
+        "maxItems": 30,
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": "string",
+            "value": "number"
+          },
+          "required": [
+            "label",
+            "value"
+          ]
+        }
       },
       {
         "name": "colors",
@@ -47,14 +62,21 @@
           "#2563eb",
           "#60a5fa",
           "#c084fc"
-        ]
+        ],
+        "minItems": 1,
+        "maxItems": 30,
+        "items": {
+          "type": "string"
+        }
       },
       {
         "name": "duration",
         "label": "Duration",
         "type": "number",
         "description": "Seconds for the animation.",
-        "defaultValue": 2
+        "defaultValue": 2,
+        "minimum": 0.1,
+        "maximum": 60
       },
       {
         "name": "showLabels",
@@ -81,6 +103,7 @@
       "intro",
       "kinetic"
     ],
+    "exportName": "KineticTitle",
     "entry": "./index.tsx",
     "preview": "./preview.tsx",
     "framework": "remotion",
@@ -96,7 +119,8 @@
         "type": "string",
         "description": "Title content to render.",
         "defaultValue": "Motion Graphics",
-        "required": true
+        "required": true,
+        "maxLength": 200
       },
       {
         "name": "color",
@@ -110,21 +134,27 @@
         "label": "Font size",
         "type": "number",
         "description": "Text size in pixels.",
-        "defaultValue": 88
+        "defaultValue": 88,
+        "minimum": 1,
+        "maximum": 512
       },
       {
         "name": "duration",
         "label": "Duration",
         "type": "number",
         "description": "Animation duration in seconds.",
-        "defaultValue": 2
+        "defaultValue": 2,
+        "minimum": 0.1,
+        "maximum": 60
       },
       {
         "name": "verticalOffset",
         "label": "Vertical offset",
         "type": "number",
         "description": "How far the title moves upward during the animation.",
-        "defaultValue": 72
+        "defaultValue": 72,
+        "minimum": 0,
+        "maximum": 1000
       },
       {
         "name": "fadeIn",
@@ -151,6 +181,7 @@
       "data",
       "metrics"
     ],
+    "exportName": "NumberCounter",
     "entry": "./index.tsx",
     "preview": "./preview.tsx",
     "framework": "remotion",
@@ -165,7 +196,9 @@
         "label": "Start",
         "type": "number",
         "description": "Counter start value.",
-        "defaultValue": 0
+        "defaultValue": 0,
+        "minimum": -1000000000,
+        "maximum": 1000000000
       },
       {
         "name": "end",
@@ -173,21 +206,27 @@
         "type": "number",
         "description": "Counter end value.",
         "defaultValue": 1200,
-        "required": true
+        "required": true,
+        "minimum": -1000000000,
+        "maximum": 1000000000
       },
       {
         "name": "duration",
         "label": "Duration",
         "type": "number",
         "description": "Seconds for the animation.",
-        "defaultValue": 2
+        "defaultValue": 2,
+        "minimum": 0.001,
+        "maximum": 60
       },
       {
         "name": "precision",
         "label": "Precision",
         "type": "number",
         "description": "Decimal places to render.",
-        "defaultValue": 0
+        "defaultValue": 0,
+        "minimum": 0,
+        "maximum": 4
       },
       {
         "name": "prefix",

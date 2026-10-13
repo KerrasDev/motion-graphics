@@ -4,6 +4,7 @@
   "description": "A simple animated bar chart for comparative metrics.",
   "category": "data",
   "tags": ["chart", "bars", "data", "analytics"],
+  "exportName": "DataChart",
   "entry": "./index.tsx",
   "preview": "./preview.tsx",
   "framework": "remotion",
@@ -12,9 +13,9 @@
   "license": "MIT",
   "properties": [
     { "name": "title", "label": "Chart title", "type": "string", "description": "Title displayed above the chart.", "defaultValue": "Performance" },
-    { "name": "data", "label": "Data", "type": "array", "description": "Array of labeled numeric values.", "defaultValue": [{ "label": "Q1", "value": 10 }] },
-    { "name": "colors", "label": "Colors", "type": "array", "description": "Bar colors.", "defaultValue": ["#2563eb", "#60a5fa", "#c084fc"] },
-    { "name": "duration", "label": "Duration", "type": "number", "description": "Seconds for the animation.", "defaultValue": 2 },
+    { "name": "data", "label": "Data", "type": "array", "description": "Array of labeled numeric values.", "defaultValue": [{ "label": "Q1", "value": 10 }], "required": true, "minItems": 1, "maxItems": 30, "items": { "type": "object", "properties": { "label": "string", "value": "number" }, "required": ["label", "value"] } },
+    { "name": "colors", "label": "Colors", "type": "array", "description": "Bar colors.", "defaultValue": ["#2563eb", "#60a5fa", "#c084fc"], "minItems": 1, "maxItems": 30, "items": { "type": "string" } },
+    { "name": "duration", "label": "Duration", "type": "number", "description": "Seconds for the animation.", "defaultValue": 2, "minimum": 0.1, "maximum": 60 },
     { "name": "showLabels", "label": "Show labels", "type": "boolean", "description": "Display value labels below each bar.", "defaultValue": true }
   ],
   "compatibility": {

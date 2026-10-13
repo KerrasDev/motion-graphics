@@ -3,6 +3,14 @@ import registryData from '../../../../../registry/effects.json';
 
 const effects = registryData as EffectMetadata[];
 
+function cloneJsonValue(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(cloneJsonValue);
+  if (typeof value === 'object' && value !== null) {
+    return Object.fromEntries(Object.entries(value).map(([key, nested]) => [key, cloneJsonValue(nested)]));
+  }
+  return value;
+}
+
 export interface EffectQuery {
   q?: string;
   category?: string;
@@ -14,7 +22,7 @@ export function getDefaultProperties(effect: EffectMetadata): Record<string, unk
   return Object.fromEntries(
     effect.properties
       .filter((property) => property.defaultValue !== undefined)
-      .map((property) => [property.name, property.defaultValue]),
+      .map((property) => [property.name, cloneJsonValue(property.defaultValue)]),
   );
 }
 
@@ -24,12 +32,11 @@ export const catalogApi = {
     const selectedTags = query.tags ?? [];
 
     const matches = effects.filter((effect) => {
-      const matchesTerm = !term || [
-        effect.name,
-        effect.description,
-        effect.category,
-        ...effect.tags,
-      ].some((value) => value.toLowerCase().includes(term));
+      const matchesTerm =
+        !term ||
+        [effect.name, effect.description, effect.category, ...effect.tags].some((value) =>
+          value.toLowerCase().includes(term),
+        );
       const matchesCategory = !query.category || query.category === 'all' || effect.category === query.category;
       const matchesTags = selectedTags.every((tag) => effect.tags.includes(tag));
 
@@ -40,8 +47,8 @@ export const catalogApi = {
       return [...matches].sort((left, right) => left.name.localeCompare(right.name));
     }
     if (query.sort === 'category') {
-      return [...matches].sort((left, right) =>
-        left.category.localeCompare(right.category) || left.name.localeCompare(right.name),
+      return [...matches].sort(
+        (left, right) => left.category.localeCompare(right.category) || left.name.localeCompare(right.name),
       );
     }
     return matches;

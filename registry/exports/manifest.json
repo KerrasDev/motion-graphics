@@ -1,0 +1,32 @@
+{
+  "data-chart": {
+    "format": "tsx",
+    "source": "packages/effects/data-chart/index.tsx",
+    "exportName": "DataChart",
+    "externalDependencies": [
+      "remotion"
+    ],
+    "requiredAssets": [],
+    "requiresManualSetup": false
+  },
+  "kinetic-title": {
+    "format": "tsx",
+    "source": "packages/effects/kinetic-title/index.tsx",
+    "exportName": "KineticTitle",
+    "externalDependencies": [
+      "remotion"
+    ],
+    "requiredAssets": [],
+    "requiresManualSetup": false
+  },
+  "number-counter": {
+    "format": "tsx",
+    "source": "packages/effects/number-counter/index.tsx",
+    "exportName": "NumberCounter",
+    "externalDependencies": [
+      "remotion"
+    ],
+    "requiredAssets": [],
+    "requiresManualSetup": false
+  }
+}

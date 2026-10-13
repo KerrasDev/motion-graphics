@@ -33,9 +33,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build effect registry
-        run: pnpm registry:build
-
       - name: Run validation, tests, lint, type checks, and production build
         run: pnpm check
         env:

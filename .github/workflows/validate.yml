@@ -24,20 +24,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Validate effect metadata
-        run: pnpm validate:effects
-
-      - name: Build registry
-        run: pnpm registry:build
-
-      - name: Type check
-        run: pnpm typecheck
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Test
-        run: pnpm test
-
-      - name: Build gallery
-        run: pnpm build
+      - name: Validate, test, and build
+        run: pnpm check

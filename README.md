@@ -63,6 +63,8 @@ pnpm registry:build
 
 Import the effect component from the registry or from the package exports and pass props matching the effect contract. All examples are intentionally predictable and easy to port into existing Remotion compositions.
 
+On an effect detail page, **Copy Effect** copies a generated standalone TSX component built from the original package source. Its declared external dependencies and a usage hint are included in the copied file. **Edit JSON** changes only declared component properties; valid changes update the preview and the separate Remotion invocation. This library currently provides Remotion components, not Higgsfield prompts or Higgsfield-compatible configurations.
+
 ## Contribution process
 
 Please review `CONTRIBUTING.md` before opening a pull request.
@@ -73,12 +75,10 @@ The production gallery is a static Vite site; it does not require the API server
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm registry:build
 pnpm check
-pnpm build
 ```
 
-The gallery build output is `apps/gallery/dist/`.
+`pnpm check` validates effects, generates the registry and standalone exports, then runs type checks, lint, tests, and the production gallery build. The gallery build output is `apps/gallery/dist/`.
 
 ## GitHub workspace repository creation
 
