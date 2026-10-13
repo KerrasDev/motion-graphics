@@ -1,5 +1,9 @@
 # Motion Graphics
 
+**Gallery URL:** [https://kerrasdev.github.io/motion-graphics/](https://kerrasdev.github.io/motion-graphics/)
+
+If this URL displays this README instead of the gallery, change **Settings → Pages → Build and deployment → Source** to **GitHub Actions**, then rerun **Deploy Motion Graphics to GitHub Pages**. Publishing from a branch builds this README with Jekyll; the gallery is published by the repository's Vite deployment workflow.
+
 Motion Graphics is a local-first registry of reusable Remotion effects for video projects. It provides searchable, copy-friendly components that can be used directly in a Remotion composition without requiring a cloud rendering service or AI API keys.
 
 ## Features
